@@ -7,8 +7,21 @@ nav {
   background-color: #4056A1;
   color: #FFFFFF;
   padding: 1.5em;
+  text-align: right;
 }
 
 nav span {
   font-family: 'Bungee', cursive;
+  float: left;
+  font-size: 36px;
+}
+
+.newtweetnav {
+  float: right;
+  text-align: center
+}
+
+.header-arrow {
+  color: red;
+  font-weight: 600;
 }
