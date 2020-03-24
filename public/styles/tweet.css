@@ -1,0 +1,60 @@
+article.tweet {
+  border: 2px solid #4056A1;
+  margin: 20px;
+  padding: 30px;
+}
+
+article.tweet:hover {
+  box-shadow: 10px 10px #C5CBE3;
+}
+
+article.tweet header {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+article.tweet header img.profile-pic {
+  height: 60px;
+  width: 60px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+}
+
+article.tweet header span.name {
+  position: absolute;
+  left: 90px;
+}
+
+article.tweet header span.handle {
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+  color: lightgrey;
+}
+
+article.tweet:hover header span.handle {
+  visibility: visible;
+}
+
+article.tweet main {
+  min-height: 70px;
+  border-bottom: 2px solid;
+  padding: 10px 20px;
+}
+
+article.tweet footer {
+  font-size: small;
+  margin-top: 10px;
+  padding: 0 20px;
+}
+
+.icons{
+float: right;
+color: #4056A1;
+font-size: 20px;
+}
+

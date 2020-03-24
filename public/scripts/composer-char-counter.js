@@ -12,5 +12,4 @@ $(document).ready(function() {
       counterDisplay.addClass('too-long');
     }
   });
-
 });
