@@ -55,11 +55,11 @@ const renderTweets = function(tweetsArray) {
 $(function() {
   $('#tweet-form').on('submit', (event) => {
     event.preventDefault();
+
+    // Validation and error feedback of tweet length
     const $error = $('#new-tweet-error');
     $error.slideUp();
     const tweet = $('#tweet-text').val();
-
-    // Validation of tweet length
     if (tweet === '' || tweet === null) {
       $error.text('⚠️ Your tweet was empty! Please enter something to tweet! ⚠️');
       return $error.slideDown();
@@ -80,6 +80,7 @@ $(function() {
     })
       .then(res => {
         loadTweets();
+        updateCounter();
       });
   });
 });
