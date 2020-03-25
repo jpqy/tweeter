@@ -104,6 +104,7 @@ $(() => {
     const $newTweetArea = $('.new-tweet');
     if ($newTweetArea.is(':hidden')) {
       $newTweetArea.slideDown();
+      $('html, body').animate({scrollTop: '0px'}, 1000);
       $('#tweet-text').focus();
     } else {
       $newTweetArea.slideUp();
