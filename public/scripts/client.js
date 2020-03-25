@@ -4,11 +4,11 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 // Escapes user input
-const escape =  function(str) {
+const escape = function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
 // Returns the number of days (rounded down) from the past to now
 const getDaysElapsed = function(past) {
@@ -55,11 +55,20 @@ const renderTweets = function(tweetsArray) {
 $(function() {
   $('#tweet-form').on('submit', (event) => {
     event.preventDefault();
+    const $error = $('#new-tweet-error');
+    $error.slideUp();
     const tweet = $('#tweet-text').val();
 
     // Validation of tweet length
-    if (tweet === '' || tweet === null) return alert('You have not entered anything!');
-    if (tweet.length > 140) return alert('Your tweet is too long!');
+    if (tweet === '' || tweet === null) {
+      $error.text('⚠️ Your tweet was empty! Please enter something to tweet! ⚠️');
+      return $error.slideDown();
+    }
+
+    if (tweet.length > 140) {
+      $error.text('⚠️ Please respect our character limit! ⚠️');
+      return $error.slideDown();
+    }
 
     // Ajax post request passing in the tweet then rerendering the tweets
     const data = $('#tweet-text').serialize();

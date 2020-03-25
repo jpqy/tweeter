@@ -3,18 +3,6 @@
   padding: 20px;
 }
 
-#tweet-text {
-  display: block;
-  background: transparent;
-  border: none;
-  resize: none;
-  border-bottom: 2px solid black;
-  margin: 10px 0px;
-  width: 100%;
-  font-size: 20px;
-  height: 55px;
-}
-
 .too-long {
   color: red;
 }
@@ -33,4 +21,25 @@
 
 .new-tweet label {
   font-weight: 600;
+}
+
+#tweet-text {
+  display: block;
+  background: transparent;
+  border: none;
+  resize: none;
+  border-bottom: 2px solid black;
+  margin: 10px 0px;
+  width: 100%;
+  font-size: 20px;
+  height: 55px;
+}
+
+#new-tweet-error {
+  border: 2px solid red;
+  margin-bottom: 20px;
+  display: none;
+  color: red;
+  font-weight: 300;
+  padding: 20px;
 }
