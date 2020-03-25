@@ -44,6 +44,23 @@ const renderTweets = function(tweetsArray) {
   $('#tweets-container').append(tweetsMarkup);
 };
 
+// Handles submission of new tweet
+$(function() {
+  $('#tweet-form').on('submit', (event) => {
+    event.preventDefault();
+    const data = $('#tweet-text').serialize();
+    $.ajax({
+      url: '/tweets',
+      type: 'POST',
+      data
+    })
+      .then(res => {
+        console.log(data);
+        console.log(res);
+      });
+  });
+});
+
 // Fake data taken from initial-tweets.json
 const data = [
   {
