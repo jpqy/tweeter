@@ -27,7 +27,7 @@ nav span {
   color: red;
   font-size: 30px;
   position: relative;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 #nav-compose-button:hover #nav-compose-arrow {

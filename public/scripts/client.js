@@ -87,7 +87,6 @@ $(function() {
 
 // Makes ajax request for tweets and renders them on page
 const loadTweets = function() {
-  console.log('rerendering');
   $.ajax({
     url: '/tweets',
     type: 'GET'
@@ -97,3 +96,16 @@ const loadTweets = function() {
     });
 };
 loadTweets();
+
+// Toggles sliding new tweet form into view when 'Write a new tweet'
+// button is clicked
+$(() => {
+  $('#nav-compose-button').on('click', function() {
+    const $newTweetArea = $('.new-tweet');
+    if ($newTweetArea.is(':hidden')) {
+      $newTweetArea.slideDown();
+    } else {
+      $newTweetArea.slideUp();
+    }
+  });
+});

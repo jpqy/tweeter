@@ -1,6 +1,7 @@
 .new-tweet {
   margin: 20px;
   padding: 20px;
+  display: none;
 }
 
 .too-long {
