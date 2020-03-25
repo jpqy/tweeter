@@ -48,7 +48,7 @@ const getMarkupFromArray = function(array, callback) {
 // Appends tweet objects in tweetsArray into #tweets-container element
 const renderTweets = function(tweetsArray) {
   const tweetsMarkup = getMarkupFromArray(tweetsArray, createTweetElement);
-  $('#tweets-container').append(tweetsMarkup);
+  $('#tweets-container').html(tweetsMarkup);
 };
 
 // Handles submission of new tweet
@@ -87,6 +87,7 @@ $(function() {
 
 // Makes ajax request for tweets and renders them on page
 const loadTweets = function() {
+  console.log('rerendering');
   $.ajax({
     url: '/tweets',
     type: 'GET'

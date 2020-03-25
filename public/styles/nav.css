@@ -16,12 +16,29 @@ nav span {
   font-size: 36px;
 }
 
-.newtweet-nav {
+#nav-compose-button {
   float: right;
-  text-align: center
+  text-align: center;
+  background-color: transparent;
+  border: none;
 }
 
-.nav-arrow {
+#nav-compose-arrow {
   color: red;
   font-size: 30px;
+  position: relative;
+  margin-top: 10px;
+}
+
+#nav-compose-button:hover #nav-compose-arrow {
+  animation: MoveUpDown 1s linear infinite;
+}
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 10px;
+  }
 }
