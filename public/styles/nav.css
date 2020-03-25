@@ -21,7 +21,7 @@ nav span {
   text-align: center
 }
 
-.header-arrow {
+.nav-arrow {
   color: red;
-  font-weight: 600;
+  font-size: 30px;
 }
