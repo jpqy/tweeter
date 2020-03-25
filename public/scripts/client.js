@@ -3,6 +3,12 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+// Escapes user input
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 // Returns the number of days (rounded down) from the past to now
 const getDaysElapsed = function(past) {
@@ -20,11 +26,11 @@ const createTweetElement = function(tweetObj) {
   const tweet = `
       <article class='tweet'>
         <header>
-          <img src='${avatars}' class='avatar'>
-          <span class='name'>${name}</span>
-          <span class='handle'>${handle}</span>
+          <img src='${escape(avatars)}' class='avatar'>
+          <span class='name'>${escape(name)}</span>
+          <span class='handle'>${escape(handle)}</span>
         </header>
-        <main>${text}</main>
+        <main>${escape(text)}</main>
         <footer>${getDaysElapsed(createdAt)} days ago <span class='tweet-footer-icons'><i class="fa fa-flag"></i><i class="fa fa-retweet"></i><i class="fa fa-heart"></i></span></footer>
       </article>
   `;
