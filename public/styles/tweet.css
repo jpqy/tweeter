@@ -16,7 +16,7 @@ article.tweet header {
   position: relative;
 }
 
-article.tweet header img.profile-pic {
+article.tweet header img.avatar {
   height: 60px;
   width: 60px;
   position: absolute;
@@ -25,7 +25,7 @@ article.tweet header img.profile-pic {
 
 article.tweet header span.name {
   position: absolute;
-  left: 90px;
+  left: 80px;
 }
 
 article.tweet header span.handle {
@@ -51,7 +51,7 @@ article.tweet footer {
   padding: 0 20px;
 }
 
-.icons{
+.tweet-footer-icons{
 float: right;
 color: #4056A1;
 font-size: 20px;
