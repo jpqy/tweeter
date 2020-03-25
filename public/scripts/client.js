@@ -56,17 +56,17 @@ $(function() {
   $('#tweet-form').on('submit', (event) => {
     event.preventDefault();
 
-    // Validation and error feedback of tweet length
+    // Validation and error feedback of tweet length    
     const $error = $('#new-tweet-error');
     $error.slideUp();
     const tweet = $('#tweet-text').val();
     if (tweet === '' || tweet === null) {
-      $error.text('⚠️ Your tweet was empty! Please enter something to tweet! ⚠️');
+      $error.html('<i class="fa fa-exclamation-triangle"></i> Your tweet was empty! Please enter something to tweet! <i class="fa fa-exclamation-triangle"></i>');
       return $error.slideDown();
     }
 
     if (tweet.length > 140) {
-      $error.text('⚠️ Please respect our character limit! ⚠️');
+      $error.text('<i class="fa fa-exclamation-triangle"></i> Please respect our character limit! <i class="fa fa-exclamation-triangle"></i>');
       return $error.slideDown();
     }
 
@@ -80,7 +80,7 @@ $(function() {
     })
       .then(res => {
         loadTweets();
-        updateCounter();
+        updateCounter(); // Text-area will be automatically cleared
       });
   });
 });
