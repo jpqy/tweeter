@@ -16,6 +16,10 @@ nav span {
   font-size: 36px;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 #nav-compose-button {
   float: right;
   text-align: center;
@@ -41,4 +45,15 @@ nav span {
   50% {
     bottom: 10px;
   }
+}
+
+#scroll-top-button {
+  background-color: red;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  font-size: 50px;
 }
