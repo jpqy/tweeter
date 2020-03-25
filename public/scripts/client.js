@@ -10,13 +10,14 @@ const getDaysElapsed = function(past) {
   return Math.floor(elapsedMs /= 1000 * 60 * 60 * 24);
 };
 
+// Creates and returns HTML of a tweet enclosed in <article>
 const createTweetElement = function(tweetObj) {
   const {
     user: { name, avatars, handle },
     content: { text },
     created_at: createdAt
   } = tweetObj;
-  const articleHTML = `
+  const tweet = `
       <article class='tweet'>
         <header>
           <img src='${avatars}' class='avatar'>
@@ -27,13 +28,20 @@ const createTweetElement = function(tweetObj) {
         <footer>${getDaysElapsed(createdAt)} days ago <span class='tweet-footer-icons'><i class="fa fa-flag"></i><i class="fa fa-retweet"></i><i class="fa fa-heart"></i></span></footer>
       </article>
   `;
-  return articleHTML;
+  return tweet;
 };
 
+// Parses elements in array into single markup according to callback function
+const getMarkupFromArray = function(array, callback) {
+  const markUpArray = [];
+  array.forEach(element => markUpArray.push(callback(element)));
+  return markUpArray.join('');
+};
+
+// Appends tweet objects in tweetsArray into #tweets-container element
 const renderTweets = function(tweetsArray) {
-  for (tweets of tweetsArray) {
-    $('#tweets-container').append(createTweetElement(tweets));
-  }
+  const tweetsMarkup = getMarkupFromArray(tweetsArray, createTweetElement);
+  $('#tweets-container').append(tweetsMarkup);
 };
 
 // Fake data taken from initial-tweets.json
