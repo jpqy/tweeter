@@ -19,7 +19,6 @@ article.tweet header {
 article.tweet header img.profile-pic {
   height: 60px;
   width: 60px;
-  background-color: white;
   position: absolute;
   left: 0;
 }
@@ -33,7 +32,7 @@ article.tweet header span.handle {
   visibility: hidden;
   position: absolute;
   right: 0;
-  color: lightgrey;
+  color: #C5CBE3;
 }
 
 article.tweet:hover header span.handle {
