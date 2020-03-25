@@ -32,9 +32,10 @@ const createTweetElement = function(tweetObj) {
 };
 
 // Parses elements in array into single markup according to callback function
+// Last element appears first in markup
 const getMarkupFromArray = function(array, callback) {
   const markUpArray = [];
-  array.forEach(element => markUpArray.push(callback(element)));
+  array.forEach(element => markUpArray.unshift(callback(element)));
   return markUpArray.join('');
 };
 
@@ -48,15 +49,22 @@ const renderTweets = function(tweetsArray) {
 $(function() {
   $('#tweet-form').on('submit', (event) => {
     event.preventDefault();
+    const tweet = $('#tweet-text').val();
+
+    // Validation of tweet length
+    if (tweet === '' || tweet === null) return alert('You have not entered anything!');
+    if (tweet.length > 140) return alert('Your tweet is too long!');
+
+    // Ajax post request passing in the tweet then rerendering the tweets
     const data = $('#tweet-text').serialize();
+    $('#tweet-text').val('');
     $.ajax({
       url: '/tweets',
       type: 'POST',
       data
     })
       .then(res => {
-        console.log(data);
-        console.log(res);
+        loadTweets();
       });
   });
 });
