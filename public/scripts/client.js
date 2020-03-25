@@ -5,13 +5,12 @@
  */
 
 // Returns the number of days (rounded down) from the past to now
-const getDaysElapsed = past => {
+const getDaysElapsed = function(past) {
   let elapsedMs = Date.now() - past;
-  console.log(elapsedMs);
   return Math.floor(elapsedMs /= 1000 * 60 * 60 * 24);
 };
 
-const createTweetElement = tweetObj => {
+const createTweetElement = function(tweetObj) {
   const {
     user: { name, avatars, handle },
     content: { text },
@@ -31,24 +30,37 @@ const createTweetElement = tweetObj => {
   return articleHTML;
 };
 
-
-
-const tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
-    "handle": "@SirIsaac"
-  },
-  "content": {
-    "text": "If I have seen further it is by standing on the shoulders of giants"
-  },
-  "created_at": 1461116232227
+const renderTweets = function(tweetsArray) {
+  for (tweets of tweetsArray) {
+    $('#tweets-container').append(createTweetElement(tweets));
+  }
 };
 
-const $tweet = createTweetElement(tweetData);
+// Fake data taken from initial-tweets.json
+const data = [
+  {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png"
+      ,
+      "handle": "@SirIsaac"
+    },
+    "content": {
+      "text": "If I have seen further it is by standing on the shoulders of giants"
+    },
+    "created_at": 1461116232227
+  },
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd"
+    },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1461113959088
+  }
+];
 
-// Test / driver code (temporary)
-console.log($tweet); // to see what it looks like
-$(document).ready(() => {
-  $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-});
+$(() => { renderTweets(data); });
