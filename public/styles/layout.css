@@ -19,9 +19,7 @@ html {
 body {
   color: #545149;
   background-color: #f2ebc4;
-  background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
-  /* background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png"); */
-  /* background-image: url("https://www.transparenttextures.com/patterns/dimension.png"); */
+  background-image: url("https://www.transparenttextures.com/patterns/food.png");   
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   min-width: 500px;
@@ -53,9 +51,3 @@ button {
   color: white;
   border: none;
 }
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
-/* Desktop styling */

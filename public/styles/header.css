@@ -7,7 +7,6 @@ body>header {
   height: 500px;
   position: relative;
   background-color: mediumaquamarine;
-  /* background-image: url("https://www.transparenttextures.com/patterns/black-linen.png"); */
   background-image: url("https://www.transparenttextures.com/patterns/crisp-paper-ruffles.png");
   text-align: center;
   margin: auto;
@@ -17,7 +16,6 @@ body>header {
   body>header {
     width: 30%;
     position: fixed;
-    /* margin-top: 120px; */
   }
   #profile {
     padding: 10px;

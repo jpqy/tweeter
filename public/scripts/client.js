@@ -16,7 +16,8 @@ const getDaysElapsed = function(past) {
   return Math.floor((elapsedMs /= 1000 * 60 * 60 * 24));
 };
 
-// Creates and returns HTML of a tweet enclosed in <article>
+// Creates and returns HTML of a tweet enclosed in article.tweet tags using
+// template string and escaping user inputs
 const createTweetElement = function(tweetObj) {
   const {
     user: { name, avatars, handle },
@@ -67,13 +68,14 @@ const loadTweets = function() {
 };
 
 $(() => {
+  // Renders tweets on page load
   loadTweets();
 
   // Handles submission of new tweet
   $("#tweet-form").on("submit", event => {
     event.preventDefault();
 
-    // Validation and error feedback of tweet length
+    // Validation and error feedback of tweet length via sliding of error div
     const $error = $("#new-tweet-error");
     $error.slideUp();
     const tweet = $("#tweet-text").val();
@@ -88,10 +90,10 @@ $(() => {
       return $error.slideDown();
     }
 
-    // Disable submit button until ajax resolves to prevent duplicate tweets
+    // Disable submit button until ajax resolves, to prevent duplicate tweets
     $('#tweet-form').children('button').prop('disabled', true);
 
-    // Ajax post request passing in the tweet then rerendering the tweets
+    // Ajax POST request
     const data = $("#tweet-text").serialize();
     $.ajax({
       url: "/tweets",

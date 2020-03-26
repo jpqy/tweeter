@@ -2,7 +2,7 @@ $(document).ready(function() {
   $('#tweet-text').on('keyup', updateCounter);
 });
 
-// Updates the character counter as 140 minus the characters in the text area
+// Updates the character counter as 140 minus the characters in the text area.
 // Turns red when counter is negative (i.e characters exceed 140)
 const updateCounter = function(event) {
   const textArea = $('#tweet-text');

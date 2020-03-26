@@ -32,7 +32,7 @@ article.tweet header span.handle {
   visibility: hidden;
   position: absolute;
   right: 0;
-  color: #C5CBE3;
+  color: rgba(116, 122, 144, 0.5);
 }
 
 article.tweet:hover header span.handle {
@@ -59,6 +59,11 @@ article.tweet footer {
 
 /* Save, retweet, and fav icons */
 
-i.fa {
-  margin: 0px 5px;
+.tweet i.fa {
+  margin-left: 5px;
+  visibility: hidden;
+}
+
+article.tweet:hover i.fa {
+  visibility: visible;
 }
