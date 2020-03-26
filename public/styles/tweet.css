@@ -68,4 +68,9 @@ article.tweet footer i.fa {
   margin-left: 5px;
   visibility: hidden;
 }
+
+article.tweet footer i.fa:hover {
+  color: red;
+  cursor: pointer;
+}
 /*# sourceMappingURL=tweet.css.map */

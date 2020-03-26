@@ -64,5 +64,10 @@ article.tweet footer {
   i.fa {
     margin-left: 5px;
     visibility: hidden;
+
+    &:hover {
+      color: red;
+      cursor: pointer;
+    }
   }
 }
