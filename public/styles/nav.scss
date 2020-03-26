@@ -1,3 +1,10 @@
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 nav {
   position: absolute;
   top: 0;
@@ -92,8 +99,12 @@ div.scroll-top-button-area {
     font-size: 50px;
     bottom: 0;
     position: absolute;
+
+    i {
+      @include centerer();
+    }
   }
-  
+
   &:hover button {
     animation: bob-up 1s ease-in-out infinite;
     box-shadow: 2px 5px 2px 0.2px grey;

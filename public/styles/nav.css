@@ -102,6 +102,14 @@ div.scroll-top-button-area button {
   position: absolute;
 }
 
+div.scroll-top-button-area button i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
 div.scroll-top-button-area:hover button {
   -webkit-animation: bob-up 1s ease-in-out infinite;
           animation: bob-up 1s ease-in-out infinite;
