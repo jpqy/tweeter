@@ -5,7 +5,7 @@
  */
 // Escapes user input
 const escape = function(str) {
-  let div = document.createElement('div');
+  const div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
@@ -13,7 +13,7 @@ const escape = function(str) {
 // Returns the number of days (rounded down) from the past to now
 const getDaysElapsed = function(past) {
   let elapsedMs = Date.now() - past;
-  return Math.floor(elapsedMs /= 1000 * 60 * 60 * 24);
+  return Math.floor((elapsedMs /= 1000 * 60 * 60 * 24));
 };
 
 // Creates and returns HTML of a tweet enclosed in <article>
@@ -31,7 +31,9 @@ const createTweetElement = function(tweetObj) {
           <span class='handle'>${escape(handle)}</span>
         </header>
         <main>${escape(text)}</main>
-        <footer>${getDaysElapsed(createdAt)} days ago <span class='tweet-footer-icons'><i class="fa fa-flag"></i><i class="fa fa-retweet"></i><i class="fa fa-heart"></i></span></footer>
+        <footer>${getDaysElapsed(
+    createdAt
+  )} days ago <span class='tweet-footer-icons'><i class="fa fa-flag"></i><i class="fa fa-retweet"></i><i class="fa fa-heart"></i></span></footer>
       </article>
   `;
   return tweet;
@@ -42,25 +44,26 @@ const createTweetElement = function(tweetObj) {
 const getMarkupFromArray = function(array, callback) {
   const markUpArray = [];
   array.forEach(element => markUpArray.unshift(callback(element)));
-  return markUpArray.join('');
+  return markUpArray.join("");
 };
 
 // Appends tweet objects in tweetsArray into #tweets-container element
 const renderTweets = function(tweetsArray) {
   const tweetsMarkup = getMarkupFromArray(tweetsArray, createTweetElement);
-  $('#tweets-container').html(tweetsMarkup);
+  $("#tweets-container").html(tweetsMarkup);
 };
 
 // Handles submission of new tweet
-$(function() {
-  $('#tweet-form').on('submit', (event) => {
+$(() => {
+  $("#tweet-form").on("submit", event => {
     event.preventDefault();
 
-    // Validation and error feedback of tweet length    
-    const $error = $('#new-tweet-error');
+    // Validation and error feedback of tweet length
+    const $error = $("#new-tweet-error");
     $error.slideUp();
-    const tweet = $('#tweet-text').val();
-    if (tweet === '' || tweet === null) {
+    const tweet = $("#tweet-text").val();
+
+    if (!tweet) {
       $error.html('<i class="fa fa-exclamation-triangle"></i> Your tweet was empty! Please enter something to tweet! <i class="fa fa-exclamation-triangle"></i>');
       return $error.slideDown();
     }
@@ -71,16 +74,20 @@ $(function() {
     }
 
     // Ajax post request passing in the tweet then rerendering the tweets
-    const data = $('#tweet-text').serialize();
-    $('#tweet-text').val('');
+    const data = $("#tweet-text").serialize();
     $.ajax({
-      url: '/tweets',
-      type: 'POST',
+      url: "/tweets",
+      type: "POST",
       data
     })
       .then(res => {
         loadTweets();
-        updateCounter(); // Text-area will be automatically cleared
+        updateCounter();
+        $("#tweet-text").val("");
+      })
+      .catch(error => {
+        renderError('Something went wrong when posting your tweet!', 'We apologize for the inconvenience.');
+        $('body').html(errorMessage);
       });
   });
 });
@@ -89,10 +96,24 @@ $(function() {
 const loadTweets = function() {
   $.ajax({
     url: '/tweets',
-    type: 'GET'
+    type: 'GET',
+    dataType: 'JSON'
   })
     .then(res => {
       renderTweets(res);
+    })
+    .catch(error => {
+      renderError('Something went wrong when fetching tweets!', 'We apologize for the inconvenience.');
     });
 };
 loadTweets();
+
+const renderError = function(heading, message) {
+  const errorMessage = `
+        <div class="error">
+          <h1>${heading}</h1>
+          <p>${message}</p>
+        </div>
+      `;
+  $('body').html(errorMessage);
+};

@@ -51,13 +51,14 @@ article.tweet footer {
   padding: 0 20px;
 }
 
-.tweet-footer-icons{
-float: right;
-color: #4056A1;
-font-size: 20px;
+.tweet-footer-icons {
+  float: right;
+  color: #4056A1;
+  font-size: 20px;
 }
 
 /* Save, retweet, fav icons */
-i.fa{
-margin: 0px 5px;
+
+i.fa {
+  margin: 0px 5px;
 }
