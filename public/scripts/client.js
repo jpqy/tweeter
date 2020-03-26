@@ -10,12 +10,6 @@ const escape = function(str) {
   return div.innerHTML;
 };
 
-// Returns the number of days (rounded down) from the past to now
-const getDaysElapsed = function(past) {
-  let elapsedMs = Date.now() - past;
-  return Math.floor((elapsedMs /= 1000 * 60 * 60 * 24));
-};
-
 // Creates and returns HTML of a tweet enclosed in article.tweet tags using
 // template string and escaping user inputs
 const createTweetElement = function(tweetObj) {
@@ -32,7 +26,7 @@ const createTweetElement = function(tweetObj) {
           <span class='handle'>${escape(handle)}</span>
         </header>
         <main>${escape(text)}</main>
-        <footer>${getDaysElapsed(createdAt)} days ago <span class='tweet-footer-icons'><i class="fa fa-flag"></i><i class="fa fa-retweet"></i><i class="fa fa-heart"></i></span></footer>
+        <footer><time class="timeago" datetime="${new Date(createdAt).toISOString()}"></time> <span class="tweet-footer-icons"><i class="fa fa-flag"></i><i class="fa fa-retweet"></i><i class="fa fa-heart"></i></span></footer>
       </article>
   `;
   return tweet;
@@ -61,6 +55,7 @@ const loadTweets = function() {
   })
     .then(res => {
       renderTweets(res);
+      $("time.timeago").timeago();
     })
     .catch(error => {
       renderError('Something went wrong when fetching tweets!', 'We apologize for the inconvenience.');
