@@ -1,11 +1,20 @@
 article.tweet {
-  border: 2px solid #4056A1;
+  border: 2px solid #4056a1;
   margin: 40px 20px;
   padding: 30px;
 }
 
 article.tweet:hover {
-  box-shadow: 10px 10px #C5CBE3;
+  -webkit-box-shadow: 10px 10px #c5cbe3;
+          box-shadow: 10px 10px #c5cbe3;
+}
+
+article.tweet:hover header span.handle {
+  visibility: visible;
+}
+
+article.tweet:hover i.fa {
+  visibility: visible;
 }
 
 article.tweet header {
@@ -35,35 +44,28 @@ article.tweet header span.handle {
   color: rgba(116, 122, 144, 0.5);
 }
 
-article.tweet:hover header span.handle {
-  visibility: visible;
-}
-
 article.tweet main {
   min-height: 70px;
   border-bottom: 2px solid;
   padding: 10px 20px;
+  word-wrap: break-word;
 }
 
 article.tweet footer {
   font-size: small;
   margin-top: 10px;
   padding: 0 20px;
+  /* Save, retweet, and fav icons */
 }
 
-.tweet-footer-icons {
+article.tweet footer .tweet-footer-icons {
   float: right;
-  color: #4056A1;
+  color: #4056a1;
   font-size: 20px;
 }
 
-/* Save, retweet, and fav icons */
-
-.tweet i.fa {
+article.tweet footer i.fa {
   margin-left: 5px;
   visibility: hidden;
 }
-
-article.tweet:hover i.fa {
-  visibility: visible;
-}
+/*# sourceMappingURL=tweet.css.map */
