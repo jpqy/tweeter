@@ -35,25 +35,45 @@ nav span {
 }
 
 #nav-compose-button:hover #nav-compose-arrow {
-  animation: MoveUpDown 1s linear infinite;
+  animation: bob-down 1s linear infinite;
 }
 
-@keyframes MoveUpDown {
+@keyframes bob-down {
   0%, 100% {
     bottom: 0;
   }
   50% {
-    bottom: 10px;
+    bottom: -10px;
   }
+}
+
+div.scroll-top-button-area {
+  height: 100px;
+  width: 80px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
 }
 
 #scroll-top-button {
   background-color: red;
   border-radius: 50%;
-  height: 90px;
-  width: 90px;
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
+  height: 80px;
+  width: 80px;
   font-size: 50px;
+  bottom: 0;
+  position: absolute;
+}
+
+div.scroll-top-button-area:hover button {
+  animation: bob-up 1s ease-in-out infinite;
+}
+
+@keyframes bob-up {
+  0%, 100% {
+    bottom: 0px;
+  }
+  50% {
+    bottom: 20px;
+  }
 }
