@@ -18,7 +18,11 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: #f3e2c8;
+  /* background-color: rgb(246, 204, 126); */
+  background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
+  /* background-image: url('http://www.transparenttextures.com/patterns/wood.png'); */
+  
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   min-width: 500px;
