@@ -2,25 +2,22 @@ nav {
   position: absolute;
   top: 0;
   height: 70px;
-  width: 100vw;
+  width: 100%;
   background-color: transparent;
   color: #FFFFFF;
   z-index: 99;
-  padding: 0;
+  padding: 1.5em;
 }
 
 nav span.brand {
   font-family: 'Bungee', cursive;
-  left: 10px;
-  top: 20px;
-  position: absolute;
+  /* position: absolute; */
+  float: left;
   font-size: 24px;
 }
 
 #nav-compose-button {
-  right: 50px;
-  top: 20px;
-  position: absolute;
+  float: right;
   text-align: center;
   background-color: transparent;
   border: none;
