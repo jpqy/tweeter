@@ -31,9 +31,7 @@ const createTweetElement = function(tweetObj) {
           <span class='handle'>${escape(handle)}</span>
         </header>
         <main>${escape(text)}</main>
-        <footer>${getDaysElapsed(
-    createdAt
-  )} days ago <span class='tweet-footer-icons'><i class="fa fa-flag"></i><i class="fa fa-retweet"></i><i class="fa fa-heart"></i></span></footer>
+        <footer>${getDaysElapsed(createdAt)} days ago <span class='tweet-footer-icons'><i class="fa fa-flag"></i><i class="fa fa-retweet"></i><i class="fa fa-heart"></i></span></footer>
       </article>
   `;
   return tweet;
