@@ -35,7 +35,7 @@ nav span {
 }
 
 #nav-compose-button:hover #nav-compose-arrow {
-  animation: bob-down 1s linear infinite;
+  animation: bob-down 1s ease-in-out infinite;
 }
 
 @keyframes bob-down {
@@ -67,6 +67,7 @@ div.scroll-top-button-area {
 
 div.scroll-top-button-area:hover button {
   animation: bob-up 1s ease-in-out infinite;
+  box-shadow: 2px 5px 2px 0.2px grey;
 }
 
 @keyframes bob-up {
