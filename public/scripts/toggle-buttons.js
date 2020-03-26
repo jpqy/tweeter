@@ -1,6 +1,6 @@
 const showNewTweetArea = function() {
   $('.new-tweet').slideDown();
-  $('html, body').animate({ scrollTop: '270px' }, 1000);
+  $('html, body').animate({ scrollTop: '0px' }, 1000);
   $('#tweet-text').focus();
 };
 

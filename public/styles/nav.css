@@ -25,7 +25,7 @@ nav span.brand {
   padding: 0;
 }
 
-@media (min-width:768px) {
+@media (min-width:1024px) {
   nav {
     position: fixed;
     height: 120px;

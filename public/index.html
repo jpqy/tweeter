@@ -1,57 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Information -->
-    <title>Tweeter - Home Page</title>
 
-    <!-- External CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+<head>
+  <!-- Meta Information -->
+  <title>Tweeter - Home Page</title>
 
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,700,700i&display=swap"
-      rel="stylesheet"
-    />
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,700,700i&display=swap" rel="stylesheet" />
 
-    <!-- External JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
-    <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
-    <script
-      type="text/javascript"
-      src="/scripts/composer-char-counter.js"
-    ></script>
-    <script type="text/javascript" src="/scripts/toggle-buttons.js"></script>
-  </head>
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <body>
-    <!-- Top nav bar (fixed) -->
-    <nav>
-      <span class="brand">tweeter</span>
-      <button id="nav-compose-button">
-        <div><b>Write</b> a new tweet</div>
-        <div id="nav-compose-arrow">
-          <i class="fa fa-angle-double-down"></i>
-        </div>
-      </button>
-    </nav>
-    <header>
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/client.js"></script>
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+  <script type="text/javascript" src="/scripts/toggle-buttons.js"></script>
+</head>
+
+<body>
+  <!-- Top nav bar (fixed) -->
+  <nav>
+    <span class="brand">tweeter</span>
+    <button id="nav-compose-button">
+      <div><b>Write</b> a new tweet</div>
+      <div id="nav-compose-arrow">
+        <i class="fa fa-angle-double-down"></i>
+      </div>
+    </button>
+  </nav>
+  <header>
+    <div id="profile">
       <div>
         <img src="/images/profile-hex.png" />
       </div>
@@ -59,27 +48,29 @@
       <div>
         <h2>Your Name</h2>
       </div>
-    </header>
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <div id="new-tweet-error">Too long!</div>
-        <form action="/tweets" method="POST" id="tweet-form">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <button type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
-        </form>
-      </section>
+    </div>
+  </header>
+  <!-- Page-specific (main) content here -->
+  <main class="container">
+    <section class="new-tweet">
+      <div id="new-tweet-error">Too long!</div>
+      <form action="/tweets" method="POST" id="tweet-form">
+        <label for="tweet-text">What are you humming about?</label>
+        <textarea name="text" id="tweet-text"></textarea>
+        <button type="submit">Tweet</button>
+        <output name="counter" class="counter" for="tweet-text">140</output>
+      </form>
+    </section>
 
-      <section id="tweets-container"></section>
-    </main>
-    <footer>
-      <div class="scroll-top-button-area">
-        <button id="scroll-top-button" class="hidden">
-          <i class="fa fa-angle-double-up"></i>
-        </button>
-      </div>
-    </footer>
-  </body>
+    <section id="tweets-container"></section>
+  </main>
+  <footer>
+    <div class="scroll-top-button-area">
+      <button id="scroll-top-button" class="hidden">
+        <i class="fa fa-angle-double-up"></i>
+      </button>
+    </div>
+  </footer>
+</body>
+
 </html>
