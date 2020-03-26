@@ -76,12 +76,12 @@ $(() => {
     const tweet = $("#tweet-text").val();
 
     if (!tweet) {
-      $error.html('<i class="fa fa-exclamation-triangle"></i> Your tweet was empty! Please enter something to tweet! <i class="fa fa-exclamation-triangle"></i>');
+      $error.html('<i class="fa fa-exclamation-triangle"></i> Your tweet was empty! Please enter something to tweet!');
       return $error.slideDown();
     }
 
     if (tweet.length > 140) {
-      $error.html('<i class="fa fa-exclamation-triangle"></i> Please respect our character limit! <i class="fa fa-exclamation-triangle"></i>');
+      $error.html('<i class="fa fa-exclamation-triangle"></i> Please respect our character limit!');
       return $error.slideDown();
     }
 
