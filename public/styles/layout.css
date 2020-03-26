@@ -18,11 +18,10 @@ html {
 
 body {
   color: #545149;
-  background-color: #f3e2c8;
-  /* background-color: rgb(246, 204, 126); */
-  background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
-  /* background-image: url('http://www.transparenttextures.com/patterns/wood.png'); */
-  
+  background-color: #f2ebc4;
+  background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
+  /* background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png"); */
+  /* background-image: url("https://www.transparenttextures.com/patterns/dimension.png"); */
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   min-width: 500px;
@@ -41,6 +40,7 @@ body>main {
   body>main {
     width: 60%;
     margin-top: 120px;
+    margin-left: 30%;
   }
 }
 
