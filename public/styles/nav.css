@@ -25,11 +25,19 @@ nav span.brand {
   padding: 0;
 }
 
+@media (min-width:768px) {
+  nav span.brand {
+    font-size: 36px;
+  }
+  #nav-compose-button {
+    font-size: 24px;
+  }
+}
+
 @media (min-width:1024px) {
   nav {
     position: fixed;
     height: 120px;
-    z-index: 99;
     background-color: #4056A1;
     padding: 1.5em;
   }
