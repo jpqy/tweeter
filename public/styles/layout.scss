@@ -3,35 +3,33 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+$primary-font-color: #545149;
+$bg-color: #f2ebc4;
+$base-font-size: 24px;
+
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 /*
  * Global layout stuff
  */
+
 body {
-  color: #545149;
-  font-size: 24px;
-  background-color: #f2ebc4;
+  color: $primary-font-color;
+  font-size: $base-font-size;
+  background-color: $bg-color;
   background-image: url("https://www.transparenttextures.com/patterns/food.png");
   font-family: "Source Sans Pro", sans-serif;
   min-width: 500px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  flex-flow: row wrap;
 }
 
 body > main {
@@ -58,4 +56,3 @@ button {
   color: white;
   border: none;
 }
-/*# sourceMappingURL=layout.css.map */

@@ -4,73 +4,84 @@ nav {
   height: 70px;
   width: 100%;
   background-color: transparent;
-  color: #FFFFFF;
+  color: white;
   z-index: 99;
   padding: 1.5em;
 }
 
 nav span.brand {
-  font-family: 'Bungee', cursive;
-  /* position: absolute; */
+  font-family: "Bungee", cursive;
   float: left;
   font-size: 24px;
 }
 
-#nav-compose-button {
+nav #nav-compose-button {
   float: right;
   text-align: center;
   background-color: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 20px;
   padding: 0;
 }
 
-@media (min-width:768px) {
-  nav span.brand {
-    font-size: 36px;
-  }
-  #nav-compose-button {
-    font-size: 24px;
-  }
-}
-
-@media (min-width:1024px) {
-  nav {
-    position: fixed;
-    height: 120px;
-    background-color: #4056A1;
-    padding: 1.5em;
-  }
-  nav span.brand {
-    font-size: 36px;
-  }
-  #nav-compose-button {
-    font-size: 24px;
-  }
-}
-
-.hidden {
-  visibility: hidden;
-}
-
-#nav-compose-arrow {
+nav #nav-compose-button #nav-compose-arrow {
   color: red;
   font-size: 1.5em;
   position: relative;
   margin-top: 5px;
 }
 
-#nav-compose-button:hover #nav-compose-arrow {
-  animation: bob-down 1s ease-in-out infinite;
+nav #nav-compose-button:hover #nav-compose-arrow {
+  -webkit-animation: bob-down 1s ease-in-out infinite;
+          animation: bob-down 1s ease-in-out infinite;
 }
 
-@keyframes bob-down {
-  0%, 100% {
+@-webkit-keyframes bob-down {
+  0%,
+  100% {
     bottom: 0;
   }
   50% {
     bottom: -10px;
   }
+}
+
+@keyframes bob-down {
+  0%,
+  100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: -10px;
+  }
+}
+
+@media (min-width: 768px) {
+  nav span.brand {
+    font-size: 36px;
+  }
+  nav #nav-compose-button {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  nav {
+    position: fixed;
+    height: 120px;
+    background-color: #4056a1;
+    padding: 1.5em;
+  }
+  nav span.brand {
+    font-size: 36px;
+  }
+  nav #nav-compose-button {
+    font-size: 24px;
+  }
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 div.scroll-top-button-area {
@@ -81,7 +92,7 @@ div.scroll-top-button-area {
   bottom: 20px;
 }
 
-#scroll-top-button {
+div.scroll-top-button-area button {
   background-color: red;
   border-radius: 50%;
   height: 80px;
@@ -92,15 +103,29 @@ div.scroll-top-button-area {
 }
 
 div.scroll-top-button-area:hover button {
-  animation: bob-up 1s ease-in-out infinite;
-  box-shadow: 2px 5px 2px 0.2px grey;
+  -webkit-animation: bob-up 1s ease-in-out infinite;
+          animation: bob-up 1s ease-in-out infinite;
+  -webkit-box-shadow: 2px 5px 2px 0.2px grey;
+          box-shadow: 2px 5px 2px 0.2px grey;
 }
 
-@keyframes bob-up {
-  0%, 100% {
+@-webkit-keyframes bob-up {
+  0%,
+  100% {
     bottom: 0px;
   }
   50% {
     bottom: 20px;
   }
 }
+
+@keyframes bob-up {
+  0%,
+  100% {
+    bottom: 0px;
+  }
+  50% {
+    bottom: 20px;
+  }
+}
+/*# sourceMappingURL=nav.css.map */
