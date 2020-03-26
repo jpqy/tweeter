@@ -86,7 +86,7 @@ $(() => {
     }
 
     if (tweet.length > 140) {
-      $error.text('<i class="fa fa-exclamation-triangle"></i> Please respect our character limit! <i class="fa fa-exclamation-triangle"></i>');
+      $error.html('<i class="fa fa-exclamation-triangle"></i> Please respect our character limit! <i class="fa fa-exclamation-triangle"></i>');
       return $error.slideDown();
     }
 
