@@ -99,9 +99,9 @@ $(() => {
       data
     })
       .then(res => {
-        loadTweets();
-        updateCounter();
         $("#tweet-text").val("");
+        updateCounter();
+        loadTweets();
         $('#tweet-form').children('button').prop('disabled', false);
       })
       .catch(error => {
