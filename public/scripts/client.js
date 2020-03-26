@@ -73,6 +73,9 @@ $(() => {
       return $error.slideDown();
     }
 
+    // Disable submit button until ajax resolves to prevent duplicate tweets
+    $('#tweet-form').children('button').prop('disabled', true);
+
     // Ajax post request passing in the tweet then rerendering the tweets
     const data = $("#tweet-text").serialize();
     $.ajax({
@@ -84,6 +87,7 @@ $(() => {
         loadTweets();
         updateCounter();
         $("#tweet-text").val("");
+        $('#tweet-form').children('button').prop('disabled', false);
       })
       .catch(error => {
         renderError('Something went wrong when posting your tweet!', 'We apologize for the inconvenience.');
