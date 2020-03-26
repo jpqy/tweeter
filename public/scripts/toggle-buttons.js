@@ -17,9 +17,10 @@ $(() => {
   $('#nav-compose-button').on('click', toggleNewTweetArea);
   $('#scroll-top-button').on('click', showNewTweetArea);
 
-  // If page is scrolled down, shows a button on bottom-right to jump to top 
+  // If page is scrolled down past the top buttons, show a button
+  // on bottom-right to jump to top 
   $(document).on('scroll', () => {
-    if ($(document).scrollTop() > 500) { // Needs to handle responsive design
+    if ($(document).scrollTop() > $('#nav-compose-button').position().top) {
       $('#scroll-top-button').removeClass('hidden');
     } else {
       $('#scroll-top-button').addClass('hidden');
