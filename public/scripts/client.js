@@ -3,7 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-// Escapes user input
+// Escapes user input using document.createTextNode
 const escape = function(str) {
   const div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
@@ -53,8 +53,25 @@ const renderTweets = function(tweetsArray) {
   $("#tweets-container").html(tweetsMarkup);
 };
 
-// Handles submission of new tweet
+// Makes ajax request for tweets and renders them on page
+const loadTweets = function() {
+  $.ajax({
+    url: '/tweets',
+    type: 'GET',
+    dataType: 'JSON'
+  })
+    .then(res => {
+      renderTweets(res);
+    })
+    .catch(error => {
+      renderError('Something went wrong when fetching tweets!', 'We apologize for the inconvenience.');
+    });
+};
+
 $(() => {
+  loadTweets();
+
+  // Handles submission of new tweet
   $("#tweet-form").on("submit", event => {
     event.preventDefault();
 
@@ -95,22 +112,6 @@ $(() => {
       });
   });
 });
-
-// Makes ajax request for tweets and renders them on page
-const loadTweets = function() {
-  $.ajax({
-    url: '/tweets',
-    type: 'GET',
-    dataType: 'JSON'
-  })
-    .then(res => {
-      renderTweets(res);
-    })
-    .catch(error => {
-      renderError('Something went wrong when fetching tweets!', 'We apologize for the inconvenience.');
-    });
-};
-loadTweets();
 
 const renderError = function(heading, message) {
   const errorMessage = `
