@@ -15,7 +15,14 @@ const toggleNewTweetArea = function() {
 };
 
 $(() => {
-  $('#nav-compose-button').on('click', toggleNewTweetArea);
+  // Compose button only toggles form if near the top, otherwise scroll & show
+  $('#nav-compose-button').on('click', () => {
+    if ($(document).scrollTop() > $('#tweet-text').position().top) {
+      showNewTweetArea();
+    } else {
+      toggleNewTweetArea();
+    }
+  });
 
   // If page is scrolled down past the nav toggler, show a fixed button on 
   // bottom-right of screen to jump up to 'new tweet' form.
