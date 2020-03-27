@@ -22,6 +22,9 @@ A simple single page Twitter clone built to pratice HTML, CSS, JS, jQuery, AJAX,
 - Prevents double-tweeting when spamming the submit button
 - Clicking the retweet button prepares a new retweet message in the tweet submission form
 
+## Screenshots
+!['Screenshot of desktop view'](https://github.com/jpqy/tweeter/blob/master/docs/desktop.png)
+!['Screenshot of mobile view'](https://github.com/jpqy/tweeter/blob/master/docs/mobile.png)
 ## Dependencies
 
 - Express
