@@ -26,7 +26,9 @@ $(() => {
       $('#scroll-top-button').addClass('hidden');
     }
   });
+
   $('#scroll-top-button').on('click', showNewTweetArea);
+  $('.brand').on('click', showNewTweetArea);
 });
 
 

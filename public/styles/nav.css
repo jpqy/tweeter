@@ -15,6 +15,10 @@ nav span.brand {
   font-size: 36px;
 }
 
+nav span.brand:hover {
+  cursor: pointer;
+}
+
 nav #nav-compose-button {
   float: right;
   text-align: center;

@@ -19,6 +19,10 @@ nav {
     font-family: "Bungee", cursive;
     float: left;
     font-size: 36px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   #nav-compose-button {
