@@ -138,3 +138,18 @@ div.scroll-top-button-area {
     bottom: 20px;
   }
 }
+
+@media (max-width: 400px) {
+  div.scroll-top-button-area {
+    height: 50px;
+    width: 40px;
+    right: 10px;
+    bottom: 10px;
+
+    button {
+      height: 40px;
+      width: 40px;
+      font-size: 25px;
+    }
+  }
+}
