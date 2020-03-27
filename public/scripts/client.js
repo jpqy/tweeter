@@ -5,7 +5,7 @@
  */
 // Escapes user input using document.createTextNode
 const escape = function(str) {
-  const div = document.createElement("div");
+  const div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
@@ -26,7 +26,7 @@ const createTweetElement = function(tweetObj) {
           <span class='handle'>${escape(handle)}</span>
         </header>
         <main>${escape(text)}</main>
-        <footer><time class="timeago" datetime="${new Date(createdAt).toISOString()}"></time> <span class="tweet-footer-icons"><i class="fa fa-flag"></i><i class="fa fa-retweet"></i><i class="fa fa-heart"></i></span></footer>
+        <footer><time class='timeago' datetime='${new Date(createdAt).toISOString()}'></time> <span class='tweet-footer-icons'><i class='fa fa-flag'></i><i class='fa fa-retweet'></i><i class='fa fa-heart'></i></span></footer>
       </article>
   `;
   return tweet;
@@ -37,13 +37,13 @@ const createTweetElement = function(tweetObj) {
 const getMarkupFromArray = function(array, callback) {
   const markUpArray = [];
   array.forEach(element => markUpArray.unshift(callback(element)));
-  return markUpArray.join("");
+  return markUpArray.join('');
 };
 
 // Appends tweet objects in tweetsArray into #tweets-container element
 const renderTweets = function(tweetsArray) {
   const tweetsMarkup = getMarkupFromArray(tweetsArray, createTweetElement);
-  $("#tweets-container").html(tweetsMarkup);
+  $('#tweets-container').html(tweetsMarkup);
 };
 
 // Makes ajax request for tweets and renders them on page
@@ -55,62 +55,82 @@ const loadTweets = function() {
   })
     .then(res => {
       renderTweets(res);
-      $("time.timeago").timeago();
+      $('time.timeago').timeago();
     })
     .catch(error => {
       renderError('Something went wrong when fetching tweets!', 'We apologize for the inconvenience.');
     });
 };
 
+const postTweet = function(event) {
+  event.preventDefault();
+
+  // Validation and error feedback of tweet length via sliding of error div
+  const $error = $('#new-tweet-error');
+  $error.slideUp();
+  const tweet = $('#tweet-text').val();
+
+  if (!tweet) {
+    $error.html("<i class='fa fa-exclamation-triangle'></i> Your tweet was empty! Please enter something to tweet!");
+    return $error.slideDown();
+  }
+
+  if (tweet.length > 140) {
+    $error.html("<i class='fa fa-exclamation-triangle'></i> Please respect our character limit!");
+    return $error.slideDown();
+  }
+
+  // Disable submit button until ajax resolves, to prevent duplicate tweets
+  $('#tweet-form').children('button').prop('disabled', true);
+
+  // Ajax POST request
+  const data = $('#tweet-text').serialize();
+  $.ajax({
+    url: '/tweets',
+    type: 'POST',
+    data
+  })
+    .then(res => {
+      $('#tweet-text').val('');
+      updateCounter();
+      loadTweets();
+      $('#tweet-form').children('button').prop('disabled', false);
+    })
+    .catch(error => {
+      renderError('Something went wrong when posting your tweet!', 'We apologize for the inconvenience.');
+      $('body').html(errorMessage);
+    });
+};
+
+// Readies a new tweet with original tweeter's handle and message
+const reTweet = function($tweet) {
+  showNewTweetArea();
+  const handle = $tweet.find('.handle').text();
+  const tweetText = $tweet.find('main').text();
+  $('#tweet-text').val(`${handle}: "${tweetText}"`);
+  updateCounter();
+};
+
 $(() => {
-  // Renders tweets on page load
+  // Renders tweets on initial page load
   loadTweets();
 
-  // Handles submission of new tweet
-  $("#tweet-form").on("submit", event => {
-    event.preventDefault();
+  // Listener for tweet button
+  $('#tweet-form').on('submit', postTweet);
 
-    // Validation and error feedback of tweet length via sliding of error div
-    const $error = $("#new-tweet-error");
-    $error.slideUp();
-    const tweet = $("#tweet-text").val();
-
-    if (!tweet) {
-      $error.html('<i class="fa fa-exclamation-triangle"></i> Your tweet was empty! Please enter something to tweet!');
-      return $error.slideDown();
+  // Listener for retweet button
+  $('main').on('click', event => {
+    if ($(event.target).hasClass('fa-retweet')) {
+      const $tweet = $(event.target).parents('article');
+      reTweet($tweet);
     }
-
-    if (tweet.length > 140) {
-      $error.html('<i class="fa fa-exclamation-triangle"></i> Please respect our character limit!');
-      return $error.slideDown();
-    }
-
-    // Disable submit button until ajax resolves, to prevent duplicate tweets
-    $('#tweet-form').children('button').prop('disabled', true);
-
-    // Ajax POST request
-    const data = $("#tweet-text").serialize();
-    $.ajax({
-      url: "/tweets",
-      type: "POST",
-      data
-    })
-      .then(res => {
-        $("#tweet-text").val("");
-        updateCounter();
-        loadTweets();
-        $('#tweet-form').children('button').prop('disabled', false);
-      })
-      .catch(error => {
-        renderError('Something went wrong when posting your tweet!', 'We apologize for the inconvenience.');
-        $('body').html(errorMessage);
-      });
   });
+
 });
 
 const renderError = function(heading, message) {
   const errorMessage = `
-        <div class="error">
+        <div class='error'>
           <h1>${heading}</h1>
           <p>${message}</p>
         </div>
