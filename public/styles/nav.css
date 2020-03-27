@@ -12,7 +12,7 @@ nav {
 nav span.brand {
   font-family: "Bungee", cursive;
   float: left;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 nav span.brand:hover {
@@ -24,7 +24,7 @@ nav #nav-compose-button {
   text-align: center;
   background-color: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 12px;
   padding: 0;
   cursor: pointer;
 }
@@ -58,6 +58,15 @@ nav #nav-compose-button:hover #nav-compose-arrow {
   }
   50% {
     bottom: -10px;
+  }
+}
+
+@media (min-width: 360px) {
+  nav span.brand {
+    font-size: 24px;
+  }
+  nav #nav-compose-button {
+    font-size: 18px;
   }
 }
 
