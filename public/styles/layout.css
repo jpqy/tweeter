@@ -20,11 +20,10 @@ html {
  */
 body {
   color: #545149;
-  font-size: 24px;
+  font-size: 16px;
   background-color: #f2ebc4;
   background-image: url("https://www.transparenttextures.com/patterns/food.png");
   font-family: "Source Sans Pro", sans-serif;
-  min-width: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,11 +33,17 @@ body {
           flex-flow: row wrap;
 }
 
-body > main {
+body main {
   width: 90%;
   z-index: 0;
   position: relative;
   margin: auto;
+}
+
+@media (min-width: 500px) {
+  body {
+    font-size: 1.5rem;
+  }
 }
 
 @media (min-width: 1024px) {

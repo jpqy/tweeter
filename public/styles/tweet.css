@@ -1,7 +1,7 @@
 article.tweet {
   border: 2px solid #4056a1;
   margin: 40px 20px;
-  padding: 30px;
+  padding: 5%;
 }
 
 article.tweet:hover {
@@ -47,8 +47,9 @@ article.tweet header span.handle {
 article.tweet main {
   min-height: 70px;
   border-bottom: 2px solid;
-  padding: 10px 20px;
+  padding: 10px 0;
   word-wrap: break-word;
+  width: 100%;
 }
 
 article.tweet footer {

@@ -1,23 +1,49 @@
-body>header {
+body > header {
   width: 100%;
 }
 
-#profile {
+body > header h2 {
+  font-size: 24px;
+}
+
+body > header img {
+  height: 150px;
+}
+
+body > header #profile {
   padding-top: 70px;
-  height: 500px;
+  height: 300px;
   position: relative;
-  background-color: #7EB35B;
+  background-color: #7eb35b;
   background-image: url("https://www.transparenttextures.com/patterns/crisp-paper-ruffles.png");
   text-align: center;
   margin: auto;
 }
 
-@media (min-width:1024px) {
-  body>header {
+@media (min-width: 500px) {
+  body > header h2 {
+    font-size: 30px;
+  }
+  body > header img {
+    height: unset;
+  }
+  body > header #profile {
+    padding-top: 70px;
+    height: 500px;
+    position: relative;
+    background-color: #7eb35b;
+    background-image: url("https://www.transparenttextures.com/patterns/crisp-paper-ruffles.png");
+    text-align: center;
+    margin: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  body > header {
     width: 30%;
     position: fixed;
   }
-  #profile {
+  body > header #profile {
     padding: 10px;
     margin-top: 160px;
     height: unset;
@@ -25,3 +51,4 @@ body>header {
     border-radius: 5%;
   }
 }
+/*# sourceMappingURL=header.css.map */

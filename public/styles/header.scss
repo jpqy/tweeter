@@ -1,0 +1,56 @@
+body > header {
+  width: 100%;
+
+  h2 {
+    font-size: 24px;
+  }
+
+  img {
+    height: 150px;
+  }
+
+  #profile {
+    padding-top: 70px;
+    height: 300px;
+    position: relative;
+    background-color: #7eb35b;
+    background-image: url("https://www.transparenttextures.com/patterns/crisp-paper-ruffles.png");
+    text-align: center;
+    margin: auto;
+  }
+}
+
+@media (min-width: 500px) {
+  body > header {
+    h2 {
+      font-size: 30px;
+    }
+    img {
+      height: unset;
+    }
+    #profile {
+      padding-top: 70px;
+      height: 500px;
+      position: relative;
+      background-color: #7eb35b;
+      background-image: url("https://www.transparenttextures.com/patterns/crisp-paper-ruffles.png");
+      text-align: center;
+      margin: auto;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  body > header {
+    width: 30%;
+    position: fixed;
+
+    #profile {
+      padding: 10px;
+      margin-top: 160px;
+      height: unset;
+      width: 300px;
+      border-radius: 5%;
+    }
+  }
+}
