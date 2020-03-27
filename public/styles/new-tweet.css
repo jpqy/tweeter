@@ -16,7 +16,6 @@
 .new-tweet button {
   font-family: 'Bungee', cursive;
   background-color: #4056A1;
-
 }
 
 .new-tweet label {
@@ -32,7 +31,18 @@
   margin: 10px 0px;
   width: 100%;
   font-size: 20px;
-  height: 55px;
+  height: 100px;
+}
+
+@media (min-width: 650px) {
+  #tweet-text {
+    height: 80px;
+  }
+}
+@media (min-width: 1300px) {
+  #tweet-text {
+    height: 55px;
+  }
 }
 
 #new-tweet-error {

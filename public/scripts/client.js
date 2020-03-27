@@ -107,7 +107,7 @@ const reTweet = function($tweet) {
   showNewTweetArea();
   const handle = $tweet.find('.handle').text();
   const tweetText = $tweet.find('main').text();
-  $('#tweet-text').val(`${handle}: "${tweetText}"`);
+  $('#tweet-text').val(`"${tweetText}" - ${handle}`);
   updateCounter();
 };
 
